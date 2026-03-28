@@ -113,6 +113,117 @@
     }
 }
 
+/* ---------- Promo Banner ---------- */
+.promo-banner {
+    position: fixed;
+    top: 42px;
+    left: 0;
+    right: 0;
+    z-index: 99998;
+    overflow: hidden;
+    background: linear-gradient(90deg, #5C0012, var(--red-dark) 30%, var(--red-primary) 50%, var(--red-dark) 70%, #5C0012);
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, transparent, var(--gold-primary), var(--gold-light), var(--gold-primary), transparent) 1;
+    box-shadow: 0 4px 20px rgba(200, 16, 46, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-main);
+}
+
+.promo-banner-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 215, 0, 0.08) 25%,
+        rgba(255, 215, 0, 0.15) 50%,
+        rgba(255, 215, 0, 0.08) 75%,
+        transparent 100%);
+    animation: bannerGlowSweep 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes bannerGlowSweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.promo-banner-content {
+    position: relative;
+    padding: 10px 0;
+}
+
+.promo-banner-track {
+    display: flex;
+    width: max-content;
+    animation: bannerScroll 25s linear infinite;
+}
+
+.promo-banner-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes bannerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.promo-banner-items {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+}
+
+.promo-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #FFF8F0;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.promo-item strong {
+    color: var(--gold-primary);
+    font-weight: 800;
+    font-size: 1.05em;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.promo-divider {
+    color: var(--gold-primary);
+    font-size: 0.7rem;
+    opacity: 0.6;
+    padding: 0 4px;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* Adjust hero padding to account for banner height */
+.hero {
+    padding-top: 80px;
+}
+
+@media (max-width: 480px) {
+    .promo-banner {
+        top: 36px;
+    }
+
+    .promo-banner-content {
+        padding: 7px 0;
+    }
+
+    .promo-item {
+        font-size: 0.78rem;
+        padding: 0 14px;
+    }
+
+    .promo-divider {
+        font-size: 0.6rem;
+    }
+}
+
 /* ---------- Reset & Base ---------- */
 *,
 *::before,
